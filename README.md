@@ -6,8 +6,8 @@ Bem-vindo ao repositório de exercícios de JavaScript do curso FuturoDEV! Aqui 
 
 O repositório está organizado da seguinte maneira:
 
-- **semana04/M01S04/**: Contém os exercícios listados da semana 04.
-- **semana05/EXERCICIOS/**: Contém os exercícios listados da semana 05.
+- **semana04/M01S04/**: Contém os exercícios listados do  módulo 01 da semana 04.
+- **semana05/EXERCICIOS/**: Contém os exercícios listados do  módulo 01 da semana 05.
 - ...
 
 Fique à vontade para explorar, clonar ou contribuir com novos exercícios!
