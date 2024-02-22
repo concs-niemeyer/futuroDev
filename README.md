@@ -25,8 +25,8 @@ Fique à vontade para explorar, clonar ou contribuir com novos exercícios!
 
 Siga os passos abaixo para utilizar os exercícios:
 
-1. Clone o repositório: `git clone https://github.com/seu-usuario/exercicios-javascript-futurodev.git`
-2. Navegue até o diretório: `cd exercicios-javascript-futurodev`
+1. Clone o repositório: `git clone https://github.com/concs-niemeyer/futuroDev.git`
+2. Navegue até o diretório: `cd semana05/EXERCICIOS/`
 3. Abra os arquivos de exercícios com seu editor de código favorito.
 
 ## Dúvidas e Suporte
