@@ -33,4 +33,4 @@ Siga os passos abaixo para utilizar os exercícios:
 
 Se tiver dúvidas sobre algum exercício ou precisar de suporte, sinta-se à vontade para abrir uma issue neste repositório.
 
-Divirta-se codificando!
+Divirta-se e bora codar!
