@@ -55,7 +55,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"nome\": \"banana\",\n        \"preco\": 0.99,\n        \"descricao\": \"fruta\"\n}",
+					"raw": "{\n    \"nome\": \"banana\",\n    \"preco\": 0.99,\n    \"descricao\": \"fruta\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
