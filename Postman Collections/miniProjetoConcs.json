@@ -55,7 +55,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"produto\": {\n        \"nome\": \"banana\",\n        \"preco\": 0.99,\n        \"descricao\": \"fruta\"\n    }\n}",
+					"raw": "\n    \"produto\": {\n        \"nome\": \"uva\",\n        \"preco\": 2.99,\n        \"descricao\": \"fruta\"\n    }\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -74,7 +74,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "1"
+							"value": "2"
 						}
 					]
 				}
