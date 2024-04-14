@@ -16,7 +16,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"produto\": {\n        \"nome\": \"acerola\",\n        \"preco\": 3.99,\n        \"descricao\": \"fruta\"\n    }\n}",
+					"raw": "{\n    \"produto\": {\n        \"nome\": \"morango\",\n        \"preco\": 3.99,\n        \"descricao\": \"fruta\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
