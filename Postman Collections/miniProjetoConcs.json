@@ -16,7 +16,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"produto\": {\n        \"nome\": \"morango\",\n        \"preco\": 3.99,\n        \"descricao\": \"fruta\"\n    }\n}",
+					"raw": "{\n    \"produto\": {\n        \"nome\": \"maçã\",\n        \"preco\": -5.99,\n        \"descricao\": \"fruta\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -55,7 +55,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nome\": \"uva\",\n    \"preco\": 1.99,\n    \"descricao\": \"fruta\"\n}",
+					"raw": "{\n    \"nome\": \"kiwi\",\n    \"preco\": 5.99,\n    \"descricao\": \"fruta\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -106,7 +106,7 @@
 					"variable": [
 						{
 							"key": "nome",
-							"value": "uva"
+							"value": "banana"
 						}
 					]
 				}
