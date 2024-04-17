@@ -1,0 +1,43 @@
+Exercicio 01 - semana 08
+
+create table departamento(
+    id serial primary key,
+    nome varchar(200) not null,
+    dataCriacao date note null,
+    check
+);
+
+Exercicio 02 - semana 08
+
+create table funcionario (
+    id serial primary key,
+    nome varchar(200) not null,
+    idade int  not null,
+    check (idade >= 14),
+    cargo varchar (100) not null,
+    salario decimal (18,2) not null,
+    idDepartamento int not null,
+    foreign key  (idDepartamento) references departamento (id)
+);
+
+select * from departamento;
+select * from funcionario;
+
+insert into departamento (nome, dataCriacao)
+values
+('Marketing', 'YYYY-MM-DD' ),
+('Financas', 'YYYY-MM-DD' ),
+('Tecnologia', 'YYYY-MM-DD' );
+
+insert into funcionario (nome, idade, cargo, salario, idDepartamento) values
+('João sem braço', 34, 'Dev', 6500.00, 1),
+'João sem braço', 34, 'Dev', 6500.00, 1),
+'João sem braço', 34, 'Dev', 6500.00, 1),
+'João sem braço', 34, 'Dev', 6500.00, 1),
+'João sem braço', 34, 'Dev', 6500.00, 1);
+
+select * from funcionario as f join departamento as d on f.idDepartamento = d.id
+
+update departamento set nome = 'Ti e inovacao' where id = 2
+
+alter table departamento alter column nome TYPE
