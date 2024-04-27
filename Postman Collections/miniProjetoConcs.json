@@ -23,7 +23,7 @@
 						}
 					}
 				},
-				"url": "{{baseUrl}}/produtos"
+				"url": "http://localhost:3420/produtos"
 			},
 			"response": []
 		},
@@ -146,7 +146,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "55c028e4-75c9-42e1-a183-cef661783f63",
+				"id": "624c70fd-260b-475e-a169-f785674f838f",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -157,7 +157,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "04ac9f87-ccc7-4b84-8f13-2cfda04b3a86",
+				"id": "a4e05412-cec8-4b6f-b2d9-ef774d72e2db",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -169,7 +169,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "http://localhost:3333"
+			"value": "http://localhost:3420"
 		}
 	]
 }
