@@ -10,11 +10,19 @@ module.exports = {
        primaryKey: true,
        type: Sequelize.INTEGER
       },
+      email: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      password: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       nome: {
        allowNull: false,
        type: Sequelize.STRING
      },
-     departamento: {
+     celular: {
       allowNull: false,
       type: Sequelize.STRING
     },
@@ -22,6 +30,10 @@ module.exports = {
        allowNull: false,
        type: Sequelize.DATE
      },
+     departamento: {
+        allowNull: false,
+        type: Sequelize.STRING
+    },
       createdAt: {
        allowNull: false,
        type: Sequelize.DATE

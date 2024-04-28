@@ -2,6 +2,8 @@ const { Router } = require('express')
 const Aluno = require('../models/Aluno')
 const Curso = require('../models/Curso')
 const Funcionario = require('../models/Funcionario')
+const { auth } = require('../middleware/auth')
+const { sign } = require('jsonwebtoken')
 
 const routes = new Router()
 
@@ -10,11 +12,44 @@ routes.get('/bem_vindo', async (req, res) => {
     res.json({name: 'Bem vindo'})
 })
 
-// Cadastrar Novo Aluno
+// Rota de Login [public]
+routes.post('/login', async (req, res) => {
+    try {
+        const email = req.body.email
+        const password = req.body.password
+
+        if (!email) {
+            return res.status(400).json({ error: "O email é obrigatório"})
+        }
+
+        if (!password) {
+            return res.status(400).json({error: "O password é obrigatório"})
+        }
+
+        const aluno = await Aluno.findOne({ where: {email:email, password:password}
+        })
+
+        if (!aluno) {
+            return res.status(404).json({error: "Nenhum aluno corresponde a email e senha fornecido."})
+        }
+        
+        const payload = {sub: aluno.id, email: aluno.email, nome: aluno.nome}
+
+        const token = sign(payload, process.env.SECRET_JWT)
+
+        res.status(200).json({Token: token})
+
+    } catch (error) {
+        return res.status(500).json({error: error, messagem: "Algo deu errado!"})
+    }
+
+})
+
+// Cadastrar Novo Aluno [public]
 routes.post('/alunos', async (req, res) => {
     try {
-        const { nome, data_nascimento, celular } = req.body;
-        const aluno = await Aluno.create({ nome, data_nascimento, celular });
+        const { email, password, nome, celular, data_nascimento } = req.body;
+        const aluno = await Aluno.create({ email, password, nome, celular, data_nascimento });
         res.status(201).json(aluno); // 201 para indicar criação bem-sucedida
     } catch (error) {
         console.error("Erro ao cadastrar aluno:", error);
@@ -22,11 +57,11 @@ routes.post('/alunos', async (req, res) => {
     }
 });
 
-// Cadastrar Novo Funcionário
+// Cadastrar Novo Funcionário [public]
 routes.post('/staff', async (req, res) => {
     try {
-        const { nome, data_nascimento, departamento } = req.body;
-        const funcionario = await Funcionario.create({ nome, data_nascimento, departamento });
+        const { email, password, nome, celular, data_nascimento, departamento } = req.body;
+        const funcionario = await Funcionario.create({ email, password, nome, celular, data_nascimento, departamento });
         res.status(201).json(funcionario); // 201 para indicar criação bem-sucedida
     } catch (error) {
         console.error("Erro ao cadastrar funcionário:", error);
@@ -34,8 +69,8 @@ routes.post('/staff', async (req, res) => {
     }
 });
 
-// Obter todos os alunos
-routes.get('/alunos', async (req, res) => {
+// Obter todos os alunos [private]
+routes.get('/alunos', auth ,async (req, res) => {
     try {
         const alunos = await Aluno.findAll();
         res.json(alunos);
@@ -45,8 +80,8 @@ routes.get('/alunos', async (req, res) => {
     }
 });
 
-// Obter todos os funcionários
-routes.get('/staff', async (req, res) => {
+// Obter todos os funcionários [private]
+routes.get('/staff', auth, async (req, res) => {
     try {
         const funcionarios = await Funcionario.findAll();
         res.json(funcionarios);
@@ -56,8 +91,8 @@ routes.get('/staff', async (req, res) => {
     }
 });
 
-// Cadastrar Novo Curso
-routes.post('/cursos', async (req, res) => {
+// Cadastrar Novo Curso [private]
+routes.post('/cursos', auth, async (req, res) => {
     try {
         const { nome, duracao_horas } = req.body;
         const curso = await Curso.create({ nome, duracao_horas });
@@ -69,7 +104,7 @@ routes.post('/cursos', async (req, res) => {
 });
 
 // Obter todos os cursos
-routes.get('/cursos', async (req, res) => {
+routes.get('/cursos', auth, async (req, res) => {
     try {
         const cursos = await Curso.findAll();
         res.json(cursos);
@@ -79,8 +114,8 @@ routes.get('/cursos', async (req, res) => {
     }
 });
 
-// Buscar o Curso pelo nome
-routes.get('/busca/:nome', async (req, res) => {
+// Buscar o Curso pelo nome [private]
+routes.get('/busca/:nome', auth, async (req, res) => {
     const { nome } = req.params;
     try {
         const cursoEncontrado = await Curso.findOne({ nome: nome });
@@ -95,8 +130,8 @@ routes.get('/busca/:nome', async (req, res) => {
     }
 });
 
-// Atualizar informações do Curso
-routes.put('/cursos/:id', async (req, res) => {
+// Atualizar informações do Curso [private]
+routes.put('/cursos/:id', auth, async (req, res) => {
     const { id } = req.params;
     const { nome, duracao_horas } = req.body;
 
@@ -125,8 +160,8 @@ routes.put('/cursos/:id', async (req, res) => {
     }
 });
 
-// Atualizar as informações dos Funcionários
-routes.put('/staff/:id', async (req, res) => {
+// Atualizar as informações dos Funcionários [private]
+routes.put('/staff/:id', auth, async (req, res) => {
     const { id } = req.params;
     const { nome, departamento } = req.body;
 
@@ -155,8 +190,8 @@ routes.put('/staff/:id', async (req, res) => {
     }
 });
 
-// Deletar um Curso
-routes.delete('/cursos/:id', async (req, res) => {
+// Deletar um Curso [private]
+routes.delete('/cursos/:id', auth, async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -177,8 +212,8 @@ routes.delete('/cursos/:id', async (req, res) => {
     }
 });
 
-// Deletar um Funcionário
-routes.delete('/staff/:id', async (req, res) => {
+// Deletar um Funcionário [private]
+routes.delete('/staff/:id', auth, async (req, res) => {
     const { id } = req.params;
 
     try {
