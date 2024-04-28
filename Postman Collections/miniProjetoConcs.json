@@ -16,7 +16,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"produto\": {\n        \"nome\": \"maçã\",\n        \"preco\": 5.99,\n        \"descricao\": \"fruta\"\n    }\n}",
+					"raw": "{\n    \"produto\": {\n        \"nome\": \"kiwi\",\n        \"preco\": -4.99,\n        \"descricao\": \"fruta\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -55,7 +55,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nome\": \"kiwi\",\n    \"preco\": 5.99,\n    \"descricao\": \"fruta\"\n}",
+					"raw": "{\n    \"nome\": \"kiwi\",\n    \"preco\": 1.99,\n    \"descricao\": \"fruta\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -74,7 +74,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "1"
+							"value": "3"
 						}
 					]
 				}
@@ -106,7 +106,7 @@
 					"variable": [
 						{
 							"key": "nome",
-							"value": "banana"
+							"value": "kiwi"
 						}
 					]
 				}
@@ -134,7 +134,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "2"
+							"value": "3"
 						}
 					]
 				}
