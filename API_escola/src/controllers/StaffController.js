@@ -2,8 +2,6 @@ const { database } = require("../config/database.config");
 const Funcionario = require("../models/Funcionario");
 
 class StaffController {
-    
-// INSESIR AS VALIDAÇÕES NO FORMATO CO ARQUIVO AlunoControllers.js !!
 
     async cadastrar(req, res) {
         try {
@@ -12,8 +10,17 @@ class StaffController {
             const nome = req.body.nome
             const celular = req.body.celular
             const data_nascimento = req.body.data_nascimento
-            const departamento = req.body.departamento
+            const setor = req.body.setor
 
+            const emailExistente = await Funcionario.findOne({
+                where: {
+                    email: email
+                }
+            })
+
+            if (emailExistente) {
+                return res.status(409).json({ message: 'Já existe uma conta com esse email'})
+            }
             if (!nome || !email) {
                 return res.status(400).json({ message: 'O nome e o email são obrigatórios'})
             }
@@ -36,7 +43,7 @@ class StaffController {
                 nome: nome,
                 celular: celular,
                 data_nascimento: data_nascimento,
-                departamento: departamento
+                setor: setor
             });
             
             res.status(201).json(funcionario); // 201 para indicar criação bem-sucedida
@@ -80,11 +87,11 @@ class StaffController {
 
     async atualizar(req, res) {
         const { id } = req.params;
-        const { nome, departamento } = req.body;
+        const { nome, setor } = req.body;
 
         // Validação dos dados recebidos no corpo da requisição
-        if (!nome || !departamento) {
-            return res.status(400).json({ error: "Nome e departamento são obrigatórios." });
+        if (!nome || !setor) {
+            return res.status(400).json({ error: "Nome do departamento e setor são obrigatórios." });
         }
 
         try {
@@ -96,7 +103,7 @@ class StaffController {
 
             // Atualiza o funcionário com os novos dados
             staffExistente.nome = nome;
-            staffExistente.departamento = departamento;
+            staffExistente.setor = setor;
             
             // Salva o curso atualizado no banco de dados
             const staffAtualizado = await staffExistente.save();

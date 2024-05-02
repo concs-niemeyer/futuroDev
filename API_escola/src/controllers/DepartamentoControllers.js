@@ -1,4 +1,3 @@
-const Curso = require("../models/Curso")
 const Departamento = require("../models/Departamento")
 
 class DepartamentoController {
@@ -6,10 +5,10 @@ class DepartamentoController {
     async cadastar(req, res){
         try{
             const setor = req.body.setor
-            const funcionario = req.body.funcionario
+            const funcionario_id = req.body.funcionario_id
             const carga_horaria = req.body.carga_horaria
 
-            if(!setor || !funcionario){
+            if(!setor || !funcionario_id){
                 return res.status(400).json({message: "O departamento e o funcionário são obrigatórios"})
             }
             
@@ -19,7 +18,7 @@ class DepartamentoController {
 
             const departamento = await Departamento.create({
                 setor: setor,
-                funcionario: funcionario,
+                funcionario_id: funcionario_id,
                 carga_horaria: carga_horaria
             })
 
@@ -32,10 +31,10 @@ class DepartamentoController {
 
     async atualizar(req, res){
         const { id } = req.params
-        const { setor, funcionario, carga_horaria} = req.body
+        const { setor, funcionario_id, carga_horaria} = req.body
 
-        if (!setor || ! funcionario) {
-            return res.status(400).json({error : "Nome do funcionário e departamento são obrigatórios"})
+        if (!setor || ! funcionario_id) {
+            return res.status(400).json({error : "ID do funcionário e departamento são obrigatórios"})
         }
 
         if (carga_horaria == NaN || carga_horaria <= 0) {
@@ -48,7 +47,7 @@ class DepartamentoController {
                 return res.status(404).json({error: "Departamento não encontrado."})
             }
             departamentoExistente.setor = setor
-            departamentoExistente.funcionario = funcionario
+            departamentoExistente.funcionario_id = funcionario_id
             departamentoExistente.carga_horaria = carga_horaria
 
             const departamentoAtualizado = await departamentoExistente.save()
@@ -98,7 +97,7 @@ class DepartamentoController {
             await Departamento.destroy( { where: {id}})
             res.status(204).end()
         } catch(error) {
-            res.status(500).json({error: "Erro ao deletaro departamento."})
+            res.status(500).json({error: "Erro ao deletar o departamento."})
         }
     }
 }

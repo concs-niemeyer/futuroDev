@@ -14,9 +14,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      funcionario: {
+      funcionario_id: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER
       },
       carga_horaria: {
         allowNull: false,
