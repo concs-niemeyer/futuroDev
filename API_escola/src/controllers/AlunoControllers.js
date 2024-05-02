@@ -1,3 +1,4 @@
+const e = require("cors");
 const Aluno = require("../models/Aluno")
 
 class AlunoController {
@@ -19,6 +20,16 @@ class AlunoController {
             const nome = req.body.nome
             const data_nascimento = req.body.data_nascimento
             const celular = req.body.celular
+
+            const emailExistente = await Aluno.findOne({
+                where: {
+                    email: email
+                }
+            })
+
+            if (emailExistente) {
+                return res.status(409).json({ message: 'Já existe uma conta com esse email'})
+            }
 
             if (!nome) {
                 return res.status(400).json({ message: 'O nome é obrigatório' })

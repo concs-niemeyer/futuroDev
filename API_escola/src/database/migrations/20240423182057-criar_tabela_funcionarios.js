@@ -12,7 +12,7 @@ module.exports = {
       },
       email: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       password: {
         allowNull: false,
@@ -30,7 +30,7 @@ module.exports = {
        allowNull: false,
        type: Sequelize.DATE
      },
-     departamento: {
+     setor: {
         allowNull: false,
         type: Sequelize.STRING
     },

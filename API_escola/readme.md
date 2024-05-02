@@ -1,5 +1,3 @@
-# Semana 10 - Introdução ao Sequelize
-
 ## Rodar o repositório:
 
 ### Na primeira vez é necessário instalar as dependencias:
@@ -36,3 +34,5 @@ https://sequelize.org/docs/v6/core-concepts/model-basics/
 `npm install -g sequelize-cli` 
 ### instalar o dotenv
 `npm install dotenv`
+### instalar o bcrytjs
+`npm install bcrytjs`

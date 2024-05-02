@@ -1,3 +1,4 @@
+const { compare } = require("bcryptjs")
 const { sign } = require("jsonwebtoken")
 const Aluno = require("../models/Aluno")
 
@@ -21,7 +22,12 @@ class LoginController {
             if (!aluno) {
                 return res.status(404).json({error: "Nenhum aluno corresponde a email e senha fornecido."})
             }
-            
+
+            const hashSenha = await compare(password, aluno.password)
+
+            if(hashSenha === false) {
+                return res.status(400).json({mensagem: 'Não encontrado essa conta'})
+            }
             const payload = {sub: aluno.id, email: aluno.email, nome: aluno.nome}
 
             const token = sign(payload, process.env.SECRET_JWT)

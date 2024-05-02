@@ -1,12 +1,13 @@
 const { DataTypes } = require("sequelize");
 const { connection } = require("../database/connection");
 
+
 const Departamento = connection.define('departamentos', {
     setor: {
         type: DataTypes.STRING
     },
-    funcionario: {
-        type: DataTypes.STRING
+    funcionario_id: {
+        type: DataTypes.INTEGER
     },
     carga_horaria: {
         type: DataTypes.INTEGER
@@ -14,4 +15,5 @@ const Departamento = connection.define('departamentos', {
 
 })
 
-module.exports = Departamento
+
+module.exports = Departamento 
