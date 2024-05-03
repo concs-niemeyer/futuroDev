@@ -16,8 +16,15 @@ module.exports = {
       },
       funcionario_id: {
         allowNull: false,
-        type: Sequelize.INTEGER
-      },
+        type: Sequelize.INTEGER,
+        unique: true,
+        references: {
+          model: 'funcionarios',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+     },
       carga_horaria: {
         allowNull: false,
         type: Sequelize.INTEGER,

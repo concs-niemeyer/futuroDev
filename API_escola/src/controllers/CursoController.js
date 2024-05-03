@@ -16,6 +16,15 @@ class CursoController {
     async cadastrar(req, res) {
         try {
             const { nome, duracao_horas } = req.body;
+            
+            if(!nome) {
+                return res.status(400).json({message: "Nome do curso é obrigatório."})
+            }
+
+            if(duracao_horas == NaN || duracao_horas <= 0) {
+                return res.status(400).json({message: "Informe o número da carga horária do curso."})
+            }
+
             const curso = await Curso.create({ nome, duracao_horas });
             res.status(201).json(curso); // 201 para indicar criação bem-sucedida
         } catch (error) {
@@ -46,6 +55,10 @@ class CursoController {
         // Validação dos dados recebidos no corpo da requisição
         if (!nome || !duracao_horas) {
             return res.status(400).json({ error: "Nome e duração do curso são obrigatórios." });
+        }
+
+        if(duracao_horas == NaN || duracao_horas <= 0) {
+            return res.status(400).json({ message: "Insira um número válido."})
         }
     
         try {

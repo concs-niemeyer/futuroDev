@@ -44,11 +44,11 @@ class AlunoController {
             }
 
             const aluno = await Aluno.create({
-                email: email,
-                password: password,
-                nome: nome,
-                data_nascimento: data_nascimento,
-                celular: celular
+                email,
+                password,
+                nome,
+                data_nascimento,
+                celular
             })
 
             res.status(201).json(aluno)
@@ -58,6 +58,7 @@ class AlunoController {
             res.status(500).json({ error: 'Não possível cadastrar o aluno' })
         }
     }
+
     async listarUm (req, res) {
         try {
 
@@ -74,7 +75,7 @@ class AlunoController {
         } catch (error) {
             console.log(error.message)
             res.status(500).json({
-                error: 'Não possível listar o aluno especifico',
+                error: 'Não foi possível listar o aluno especifico',
                 error: error
             })
         }
