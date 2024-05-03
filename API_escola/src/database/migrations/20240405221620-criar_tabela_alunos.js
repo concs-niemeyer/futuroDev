@@ -24,7 +24,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       celular: {
-        allowNull: false,
+        allowNull: true,
+        unique: true,
         type: Sequelize.STRING
       },
       data_nascimento: {

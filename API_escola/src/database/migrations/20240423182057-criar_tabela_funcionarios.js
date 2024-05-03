@@ -12,6 +12,7 @@ module.exports = {
       },
       email: {
         allowNull: false,
+        unique: true,
         type: Sequelize.STRING,
       },
       password: {
@@ -24,6 +25,7 @@ module.exports = {
      },
      celular: {
       allowNull: false,
+      unique: true,
       type: Sequelize.STRING
     },
      data_nascimento: {

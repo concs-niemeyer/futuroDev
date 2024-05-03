@@ -7,7 +7,8 @@ const Departamento = connection.define('departamentos', {
         type: DataTypes.STRING
     },
     funcionario_id: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        unique: true
     },
     carga_horaria: {
         type: DataTypes.INTEGER

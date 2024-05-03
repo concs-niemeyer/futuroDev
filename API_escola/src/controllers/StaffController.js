@@ -37,13 +37,17 @@ class StaffController {
                 return res.status(400).json({ message: 'A data de nascimento é não está no formato correto' })
             }
 
+            if (!setor) {
+                return res.status(400).json({ message: 'Informe o setor por favor.'})
+            }
+
             const funcionario = await Funcionario.create({
-                email: email, 
-                password: password,
-                nome: nome,
-                celular: celular,
-                data_nascimento: data_nascimento,
-                setor: setor
+                email, 
+                password,
+                nome,
+                celular,
+                data_nascimento,
+                setor
             });
             
             res.status(201).json(funcionario); // 201 para indicar criação bem-sucedida
@@ -62,7 +66,6 @@ class StaffController {
             console.error("Erro ao obter funcionários:", error);
             res.status(500).json({ error: "Erro ao obter funcionários." });
         }
-
     }
 
     async listarPeloId(req, res) {
