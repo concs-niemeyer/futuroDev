@@ -5,7 +5,8 @@
 }
 
 html, input, button {
-    font-family: "Inter", sans-serif;
+    font-family: "Marvel", sans-serif;
+    font-size: large;
 }
 
 body {
@@ -112,8 +113,6 @@ header h1 {
 }
 
 .news div {
-    display: flex;
-    align-items: center;
     padding: 8px;
     font-size: 12px;
     background: #F5F5F5;
@@ -127,8 +126,5 @@ header h1 {
     text-overflow: ellipsis;
     font-size: 14px;
     color: #44546A;
-}
-
-.riscado {
-    text-decoration: line-through;
+    text-align: center;
 }
