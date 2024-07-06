@@ -20,7 +20,7 @@ function Contato() {
     <>
       <section className="contato-formulario">
         <form className="form" id="contato-form" name="formulario">
-          <div>
+          <div id="div1">
             <label htmlFor="nome">Nome</label>
             <input
               id="nome"
@@ -32,7 +32,7 @@ function Contato() {
               onChange={(e) => setNomeInput(e.target.value)}
             />
           </div>
-          <div>
+          <div id='div2'>
             <label htmlFor="email">Email</label>
             <input
               id="email"
@@ -44,18 +44,19 @@ function Contato() {
               onChange={(e) => setEmailInput(e.target.value)}
             />
           </div>
-          <div>
+          <div id='div3'>
             <label htmlFor="mensagem">Mensagem</label>
             <textarea
               id="mensagem"
               rows="5"
               className="mensagem"
+			  placeholder="Escreva a sua  mensagem aqui"
               value={mensagemInput}
               onChange={(e) => setMensagemInput(e.target.value)}
             ></textarea>
           </div>
 		  </form>
-          <button onClick={() => handleSubmit()} className="botao col-2">
+          <button onClick={() => handleSubmit()} className="botao">
             Enviar
           </button>
         
