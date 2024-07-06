@@ -1,0 +1,25 @@
+.header {
+    background-color: #000;
+    color: white;
+    display: flex;
+    align-items: baseline;
+    width: 100vw;
+}
+
+.logo-bike {
+    padding-top: 24px;
+    padding-left: 80px;
+}
+
+.header-menu {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 80px;
+    gap: 40px;
+    list-style: none;
+}
+
+.header-menu li {
+    gap: 40px;
+}
