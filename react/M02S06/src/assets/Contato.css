@@ -1,0 +1,73 @@
+.form {
+  display: grid;
+  grid-template-columns: 2fr, 1fr;
+  gap: 20px;
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111111;
+}
+
+.contato-formulario {
+  margin-left: 32px;
+  margin-right: 42px;
+  border-radius: 5px;
+  background: #ffffff;
+  padding: 60px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  font: 400 1rem / 1.5 "Poppins", sans-serif;
+  margin-bottom: 4px;
+  color: #111111;
+}
+
+.form .mensagem {
+  grid-column: span 2;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form textarea {
+  color: #5f5d5d;
+  font: 400 1rem/1.5 "Roboto", sans-serif;
+  background: #f7f7f7;
+  border: 1px solid #ededed;
+  padding: 12px;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form input[type="text"]:focus,
+.form input[type="email"]:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: #ffbb00;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #fea;
+}
+
+@media (max-width: 600px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+  .form .mensagem {
+    grid-column: 1;
+  }
+}
+
+.botao {
+  display: inline-block;
+  padding: 16px 32px;
+  background: linear-gradient(#ffbf00, #f2a50c);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  color: #332200;
+  font: 600 1.125rem / 1.35 "Poppins", sans-serif;
+  max-width: max-content;
+  border: none;
+  cursor: pointer;
+}

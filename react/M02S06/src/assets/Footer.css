@@ -1,0 +1,9 @@
+.footer {
+    background-color: #000;
+    color: white;
+    width: 100vw;
+}
+
+.footer li {
+    list-style: none;
+}
